@@ -1,5 +1,5 @@
 function getSrc(symbol) {
-    dateRange = "1m"
+    dateRange = "1d"
     config = {
         "symbol": symbol,
         "width": "100%",
