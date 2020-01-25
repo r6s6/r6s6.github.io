@@ -5,9 +5,9 @@ symbols = [
     "NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ", "ASX:QAU", "",
     "FX_IDC:USDBRL", "FX_IDC:EURUSD", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL"
 ]
-// symbols = [
-//     "FOREXCOM:DJI", "OANDA:SPX500USD"
-// ]
+symbols = [
+    "FOREXCOM:DJI", "OANDA:SPX500USD"
+]
 
 refreshInterval = 180000
 loadDelay = 30000
@@ -21,7 +21,7 @@ function getSrc(symbol) {
         "locale": "en",
         "dateRange": dateRange,
         "colorTheme": "dark",
-        "trendLineColor": "rgba(152, 152, 152, 1)",
+        "trendLineColor": "rgba(124, 185, 232, 1)",
         "underLineColor": "rgba(17, 17, 17, 0)",
         "isTransparent": false,
         "autosize": true,
