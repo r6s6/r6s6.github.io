@@ -3,8 +3,9 @@ symbols = [
     "FOREXCOM:DJI", "OANDA:SPX500USD", "OANDA:NAS100USD", "TVC:GOLDSILVER","INDEX:DXY", "",
     "GEMINI:BTCUSD", "GEMINI:ETHUSD", "TVC:GOLD", "TVC:SILVER", "NYSE:SPOT", "",
     "NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ", "ASX:QAU", "",
-    "FX_IDC:USDBRL", "FX_IDC:EURUSD", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL"
+    "FX_IDC:USDBRL", "FX_IDC:USDEUR", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL"
 ]
+
 // symbols = [
 //     "FOREXCOM:DJI", "OANDA:SPX500USD"
 // ]
@@ -13,7 +14,7 @@ refreshInterval = 180000
 loadDelay = 30000
 
 function getSrc(symbol) {
-    dateRange = "1m"
+    dateRange = "1d"
     config = {
         "symbol": symbol,
         "width": "100%",
