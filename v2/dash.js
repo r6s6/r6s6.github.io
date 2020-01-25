@@ -5,9 +5,9 @@ symbols = [
     "NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ", "ASX:QAU", "",
     "FX_IDC:USDBRL", "FX_IDC:EURUSD", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL"
 ]
-symbols = [
-    "FOREXCOM:DJI", "OANDA:SPX500USD"
-]
+// symbols = [
+//     "FOREXCOM:DJI", "OANDA:SPX500USD"
+// ]
 
 refreshInterval = 180000
 loadDelay = 30000
