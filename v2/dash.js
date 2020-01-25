@@ -14,7 +14,7 @@ refreshInterval = 180000
 loadDelay = 30000
 
 function getSrc(symbol) {
-    dateRange = "1d"
+    dateRange = "1M"
     config = {
         "symbol": symbol,
         "width": "100%",
