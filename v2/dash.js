@@ -3,7 +3,7 @@ symbols = [
     "FOREXCOM:DJI", "OANDA:SPX500USD", "OANDA:NAS100USD", "TVC:GOLDSILVER","INDEX:DXY", "",
     "GEMINI:BTCUSD", "GEMINI:ETHUSD", "TVC:GOLD", "TVC:SILVER", "NYSE:SPOT", "",
     "NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ", "ASX:QAU", "",
-    "FX_IDC:USDBRL", "FX_IDC:USDEUR", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL"
+    "FX_IDC:USDBRL", "FX_IDC:USDEUR", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL", "",
 ]
 
 // symbols = [
@@ -32,7 +32,7 @@ function getSrc(symbol) {
     return "https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#" + escape(JSON.stringify(config));
 }
 
-window.onload = function() {
+function createGraphs() {
     grid = document.getElementById("main")
 
     for (symbol of symbols) {
@@ -54,6 +54,20 @@ window.onload = function() {
         }
     }
 }
+
+window.onload = createGraphs
+
+window.onresize = function(event) {
+    var grid = document.getElementById("main")
+    p = grid.parentNode
+    p.removeChild(grid)
+
+    var div = document.createElement("div")
+    div.id = "main"
+    p.appendChild(div)
+
+    createGraphs()
+};
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
