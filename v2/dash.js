@@ -1,9 +1,10 @@
 
-symbols = [
-    "FOREXCOM:DJI", "OANDA:SPX500USD", "OANDA:NAS100USD", "TVC:GOLDSILVER","INDEX:DXY", "",
-    "GEMINI:BTCUSD", "GEMINI:ETHUSD", "TVC:GOLD", "TVC:SILVER", "NYSE:SPOT", "",
-    "NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ", "ASX:QAU", "",
-    "FX_IDC:USDBRL", "FX_IDC:USDEUR", "FX_IDC:USDCNY", "FX:USDJPY", "UKOIL", "",
+rows = [
+    ["FOREXCOM:DJI", "OANDA:SPX500USD", "OANDA:NAS100USD", "UKOIL", "AMEX:HYG", "NYSE:SPOT"],
+    ["GEMINI:BTCUSD", "GEMINI:ETHUSD", "BINANCE:ETHBTC", "TVC:GOLD", "TVC:SILVER", "TVC:GOLDSILVER"],
+    ["INDEX:DXY", "FX_IDC:USDBRL", "FX_IDC:USDEUR", "FX_IDC:USDCNY", "FX:USDJPY", "FX_IDC:USDGBP"],
+    ["NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ", "ASX:QAU"],
+    ["NYSE:FNV", "AMEX:MMX", "TSX:SSL", "NASDAQ:RGLD", "AMEX:MTA", "NYSE:WPM"]
 ]
 
 // symbols = [
@@ -35,12 +36,11 @@ function getSrc(symbol) {
 function createGraphs() {
     grid = document.getElementById("main")
 
-    for (symbol of symbols) {
-        if (symbol=="") {
-            var br = document.createElement("br")
-            grid.appendChild(br)
-        }
-        else {
+    for (symbols of rows) {
+        var row = document.createElement("div")
+        row.className = "row"
+
+        for (symbol of symbols) {
             var div = document.createElement("div")
             div.className = "ticker-container"
             div.id = symbol
@@ -50,8 +50,10 @@ function createGraphs() {
             ticker.src = getSrc(symbol)
 
             div.appendChild(ticker)
-            grid.appendChild(div)
+            row.appendChild(div)
         }
+
+        grid.appendChild(row)
     }
 }
 
@@ -74,8 +76,8 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 async function refreshTickers() {
     console.log("start refresh")
     tickers = {}
-    for (symbol of symbols) {
-        if (symbol!="") {
+    for (symbols of rows) {
+        for (symbol of symbols) {
             var div = document.getElementById(symbol)
             oldTicker = div.children[0]
 
@@ -94,8 +96,8 @@ async function refreshTickers() {
     }
     await delay(loadDelay)
     console.log("replacing")
-    for (symbol of symbols) {
-        if (symbol!="") {
+    for (symbols of rows) {
+        for (symbol of symbols) {
             var div = document.getElementById(symbol)
             oldTicker = div.children[0]
             newTicker = div.children[1]
