@@ -11,8 +11,8 @@ rows = [
 //     "FOREXCOM:DJI", "OANDA:SPX500USD"
 // ]
 
-refreshInterval = 180000
-loadDelay = 30000
+refreshInterval = 300000
+loadDelay = 60000
 
 function getSrc(symbol) {
     dateRange = "1m"
