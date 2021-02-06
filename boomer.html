@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Boomer</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+rows = [
+    ["FOREXCOM:DJI", "OANDA:SPX500USD", "OANDA:NAS100USD", "NASDAQ:QQQ", "OANDA:US2000USD"],
+    ["TVC:GOLD", "TVC:SILVER", "TVC:GOLDSILVER", "TVC:PLATINUM", "COMEX:HGS1!"],
+    ["INDEX:DXY", "FX_IDC:USDEUR", "FX_IDC:USDBRL"],
+    ["NASDAQ:RING", "AMEX:GDXJ", "AMEX:SLVP", "AMEX:SILJ"],
+    ["UKOIL", "AMEX:UUUU", "NYSE:FNV", "NASDAQ:PAAS"],
+]
+    </script>
+    <script src="dash.js"/></script>
+    <style>
+        body {
+            background-color: #1E222D;
+            color: white;
+            padding: 0;
+        }
+
+        iframe {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ticker-container {
+            width: 19.95%;
+            height: 100%;
+            float: left;
+        }
+
+        .row {
+            width: 100%;
+            height: 20%;
+        }
+
+        .ticker {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+</body>
+
+</html>
