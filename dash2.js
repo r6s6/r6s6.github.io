@@ -1,6 +1,10 @@
 refreshInterval = 10 * 60 * 1000 // 10 min
 loadDelay = 3 * 60 * 1000 // 3 min
 
+// refreshInterval = 1 * 10 * 1000
+// loadDelay = 1 * 5 * 1000
+// const symbols = ["GEMINI:BTCUSD", "EMPTY"]
+
 function getSrc(symbol) {
     dateRange = "1m"
     config = {
@@ -66,13 +70,12 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 async function refreshTickers() {
     console.log("start refresh")
     tickers = {}
-    for (symbols of rows) {
-        for (symbol of symbols) {
-            var div = document.getElementById(symbol)
-            oldTicker = div.children[0]
+    for (symbol of symbols) {
+        if (symbol != "EMPTY") {
+            div = document.getElementById(symbol)
+            var oldTicker = div.children[0]
 
             var ticker = document.createElement("iframe")
-            // ticker.src = getSrc("OANDA:NAS100USD")
             ticker.src = getSrc(symbol)
             ticker.className = "ticker"
             ticker.style.position = "absolute"
@@ -86,11 +89,11 @@ async function refreshTickers() {
     }
     await delay(loadDelay)
     console.log("replacing")
-    for (symbols of rows) {
-        for (symbol of symbols) {
-            var div = document.getElementById(symbol)
-            oldTicker = div.children[0]
-            newTicker = div.children[1]
+    for (symbol of symbols) {
+        if (symbol != "EMPTY") {
+            div = document.getElementById(symbol)
+            oldTicker = div.getElementsByTagName("iframe")[0]
+            newTicker = div.getElementsByTagName("iframe")[1]
             newTicker.style.zIndex = 2
             div.removeChild(oldTicker)
             newTicker.style.zIndex = 1
